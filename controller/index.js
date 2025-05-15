@@ -1,4 +1,5 @@
 import express, { response } from 'express' //after configuring package.json and adding type: "module"
+import { searchController, usernameController } from './controller';
 
 // app instance
 const app = express()
@@ -10,6 +11,11 @@ const PORT = 3000;
 app.get('/', (request, response) => { //api endpoint, use req if we want to send any data in this api, use res if want to send any data from the backend
     response.send('Hello ExpressJS2') // the '/' = represents root route, which means the response 'hello express' will appear in the root route
 }) 
+
+app.get('/user/:username', usernameController) //exporting to controller.js
+
+//query strings  
+app.get('/search', searchController) //exporting to controller.js
 
 //another route / about route
 app.get('/about', (request, response) => { 
