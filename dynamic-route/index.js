@@ -1,4 +1,5 @@
 import express, { response } from 'express' //after configuring package.json and adding type: "module"
+import { searchController, usernameController } from '../controller/controller';
 
 // app instance
 const app = express()
@@ -23,20 +24,10 @@ app.get('/contact', (request, response) => {
 
 //dynamic route ex1
 //              parameter
-app.get('/user/:username', (request, response) => { //http://localhost:3000/user/joey = or any other username
-    //get parameter
-    const username = request.params.username;
+app.get('/user/:username', usernameController) //exporting to controller.js
 
-    //extract parameter from url
-    //use response
-    response.send(`Welcome ${username}`)
-})
-
-//query strings 
-app.get('/search', (request, response) => { // /search?keyword=express      //http://localhost:3000/search?keyword=express
-    const keyword = request.query.keyword; //using this we can get the value of keyword
-    response.send(`Searching for ${keyword}`) //send the response after getting the keyword
-})
+//query strings  
+app.get('/search', searchController) //exporting to controller.js
 
 //initialize express app
 app.listen(PORT, () => {

@@ -11,6 +11,18 @@ app.get('/', (request, response) => { //api endpoint, use req if we want to send
     response.send('Hello ExpressJS2') // the '/' = represents root route, which means the response 'hello express' will appear in the root route
 }) 
 
+//
+app.get('/user/:username', (request, response) => { 
+    const username = request.params.username;
+    response.send(`Welcome ${username}`)
+}) 
+
+//search?keyword=express
+app.get('/search', (request, response) => { 
+    const username = request.query.keyword;
+    response.send(`Searching for ${keyword}`);
+}) 
+
 //another route / about route
 app.get('/about', (request, response) => { 
     response.send('This is about route')  //http://localhost:3000/about
