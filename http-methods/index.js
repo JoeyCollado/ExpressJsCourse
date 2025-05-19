@@ -20,9 +20,9 @@ app.get('/', (request, response) => { //api endpoint, use req if we want to send
 // app.get('/user/signup', userSignup)
 app.use('/user', router) //initialize route
 
-app.post('/users', express.json , (req,res) => { //simple post method, express.json = middleware
-    const {name, email} = req.body //destructuring
-    res.json({ //response
+app.post('/users', express.json() , (request,response) => { //simple post method, express.json = middleware
+    const {name, email} = request.body //destructuring
+    response.json({ //response
         message: `User ${name} with email ${email} created successfully` 
     })
 })
