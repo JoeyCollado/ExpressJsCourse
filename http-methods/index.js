@@ -20,12 +20,43 @@ app.get('/', (request, response) => { //api endpoint, use req if we want to send
 // app.get('/user/signup', userSignup)
 app.use('/user', router) //initialize route
 
-app.post('/users', express.json() , (request,response) => { //simple post method, express.json = middleware
+app.use(express.json) //middleware will directly apply to all request/ routes, withouth explicitly putting it to the request directly
+
+// app.post('/users', express.json() , (request,response) => { //simple post method, express.json = middleware
+//     const {name, email} = request.body //destructuring
+//     response.json({ //response
+//         message: `User ${name} with email ${email} created successfully` 
+//     })
+// })
+
+// //to try go to postman make a request use post, paste http://localhost:3000/users then create a simple object {"name": "anyname", "email": "any email"}
+
+// app.put('/users/:id', express.json(), (req,res) => {
+//     const userId = req.params.id //get user id
+//     const {name, email} = req.body //get data from client
+//     res.json({
+//         message: `User ${userId} updated successfully to ${name}, ${email}`
+//     })
+// })
+
+app.post('/users' , (request,response) => { //simple post method, express.json = middleware
     const {name, email} = request.body //destructuring
     response.json({ //response
         message: `User ${name} with email ${email} created successfully` 
     })
 })
+
+//to try go to postman make a request use post, paste http://localhost:3000/users then create a simple object {"name": "anyname", "email": "any email"}
+
+app.put('/users/:id',  (req,res) => {
+    const userId = req.params.id //get user id
+    const {name, email} = req.body //get data from client
+    res.json({
+        message: `User ${userId} updated successfully to ${name}, ${email}`
+    })
+})
+
+//to try go to postman, make a request, use put method and paste http://localhost:3000/users/uid123, then create an object {"name": "anyname", "email": "any email"}
 
 //another route / about route
 app.get('/about', (request, response) => { 
@@ -57,3 +88,7 @@ app.listen(PORT, () => {
 //npm install express
 
 //also remember to always go to package.json and add our file.js in the scripts with start: ""
+
+//handling put request
+//used to update an existing resource
+//use route parameters (req.params) to identify the resource
