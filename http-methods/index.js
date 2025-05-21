@@ -12,6 +12,7 @@ const app = express()
 const PORT = 3000;
 
 //router define
+//get request
 app.get('/', (request, response) => { //api endpoint, use req if we want to send any data in this api, use res if want to send any data from the backend
     response.send('Hello ExpressJS2') // the '/' = represents root route, which means the response 'hello express' will appear in the root route
 }) 
@@ -20,7 +21,7 @@ app.get('/', (request, response) => { //api endpoint, use req if we want to send
 // app.get('/user/signup', userSignup)
 app.use('/user', router) //initialize route
 
-app.use(express.json) //middleware will directly apply to all request/ routes, withouth explicitly putting it to the request directly
+app.use(express.json()) //middleware will directly apply to all request/ routes, withouth explicitly putting it to the request directly
 
 // app.post('/users', express.json() , (request,response) => { //simple post method, express.json = middleware
 //     const {name, email} = request.body //destructuring
@@ -39,20 +40,30 @@ app.use(express.json) //middleware will directly apply to all request/ routes, w
 //     })
 // })
 
-app.post('/users' , (request,response) => { //simple post method, express.json = middleware
-    const {name, email} = request.body //destructuring
-    response.json({ //response
+//post request
+app.post('/users' , (req,res) => { //simple post method, express.json = middleware
+    const {name, email} = req.body //destructuring
+    res.json({ //response
         message: `User ${name} with email ${email} created successfully` 
     })
 })
 
 //to try go to postman make a request use post, paste http://localhost:3000/users then create a simple object {"name": "anyname", "email": "any email"}
 
+//put request
 app.put('/users/:id',  (req,res) => {
     const userId = req.params.id //get user id
     const {name, email} = req.body //get data from client
     res.json({
         message: `User ${userId} updated successfully to ${name}, ${email}`
+    })
+})
+
+//delete request
+app.delete('/users/:id', (req,res) => {
+    const userId = req.params.id; //get user id
+    res.json({
+        message: `User with ID ${userId} deleted successfully`
     })
 })
 
@@ -92,3 +103,6 @@ app.listen(PORT, () => {
 //handling put request
 //used to update an existing resource
 //use route parameters (req.params) to identify the resource
+
+//handling delete request
+//used to remove a resource from the server
