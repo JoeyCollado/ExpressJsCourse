@@ -107,7 +107,7 @@ app.listen(PORT, () => {
 //handling delete request
 //used to remove a resource from the server
 
-app.get('/things/:name/:id', (req,res) => { //multiple parameters
+app.get('/things/:name/:id([0-9]{5})', (req,res) => { //multiple parameters
     const {name,id} = req.params
     res.json({
         id,
@@ -116,3 +116,8 @@ app.get('/things/:name/:id', (req,res) => { //multiple parameters
 })
 
 //catch-all invalid routes
+//route that is called when we have no available route that is specified in the server
+app.get('*', (req, res) => {
+    res.send('Sorry, this is an invalid URL.');
+  });
+  
