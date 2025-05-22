@@ -106,3 +106,13 @@ app.listen(PORT, () => {
 
 //handling delete request
 //used to remove a resource from the server
+
+app.get('/things/:name/:id', (req,res) => { //multiple parameters
+    const {name,id} = req.params
+    res.json({
+        id,
+        name
+    })
+})
+
+//catch-all invalid routes
