@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "name": "installation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": ""
+}
