@@ -43,3 +43,13 @@ Middleware Workflow
 Client Request → Middleware → Route Handler → Response to Client
 
 Middleware is essential for logging, authentication, request parsing, error handling, etc.
+
+//types of middleware
+Types of Middleware in ExpressJS
+
+Type	                           Description	                                    Example
+Application-Level Middleware	   Applies to all routes in an app	                app.use(loggerMiddleware)
+Router-Level Middleware	           Applies to specific route groups	                router.use(authMiddleware)
+Built-in Middleware	               Comes with Express (e.g., express.json())	    app.use(express.json())
+Third-Party Middleware	           External libraries for additional functionality	app.use(cors())
+Error-Handling Middleware	       Handles errors in the request lifecycle	        app.use(errorHandler)
