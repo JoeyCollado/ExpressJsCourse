@@ -8,7 +8,12 @@ const app = express()
 const PORT = 3000;
 
 app.use((req,res, next) => {
-    console.log('Start')
+    console.log('Start') //1
+
+    res.on('finish', () => {
+        console.log('End') //3
+    })
+
     next()
 })
 
@@ -22,7 +27,7 @@ app.use('/welcome', (req, res, next) => { //application level middleware, applie
 //router define
 //get request
 app.get('/', (request, response) => { //api endpoint, use req if we want to send any data in this api, use res if want to send any data from the backend
-    console.log('Middle')
+    console.log('Middle') //2
     response.send('Hello Express') // the '/' = represents root route, which means the response 'hello express' will appear in the root route
 }) 
 
