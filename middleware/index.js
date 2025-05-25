@@ -1,21 +1,27 @@
 import express, { response } from 'express' //after configuring package.json and adding type: "module"
-
-
 // app instance
 const app = express()
- 
 //backend
 const PORT = 3000;
 
-app.use((req,res, next) => {
-    console.log('Start') //1
-
-    res.on('finish', () => {
-        console.log('End') //3
-    })
-
-    next()
+app.get('/error', () => { //api 
+    throw new Error('This is test error')
 })
+
+//handle api error to middleware
+app.use((err, req, res, next) => {
+    console.error(err.message)
+    res.send('Internal server error')
+})
+
+// app.use((req,res, next) => {
+//     console.log('Start') //1
+
+//     res.on('finish', () => {
+//         console.log('End') //3
+//     })
+//     next()
+// })
 
 /*
 app.use('/welcome', (req, res, next) => { //application level middleware, applies to all route
@@ -36,8 +42,13 @@ app.get('/welcome', (request, response) => { //by adding the route in the middle
     response.send('Welcome to express app') 
 }) 
 */
-
-
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
+
+//third party middleware
+//https://www.npmjs.com/ = website
+
+//third party middlewares
+//body-parser = can parse json body, pass raw body, pass url encoded form data from the body
+//cookie-parser = pass the cookies on the request
