@@ -16,6 +16,10 @@ app.use('/images', express.static('images')) //exposing images folder and access
 //go to http://localhost:3000/example.txt to check response of file
 //another example = http://localhost:3000/jek2.png for image
 
+//after exposing as public routes
+//this is how you access it http://localhost:3000/images/jek2.png
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
