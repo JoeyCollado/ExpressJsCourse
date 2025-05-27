@@ -13,6 +13,7 @@ app.get('/', (request, response) => {
 app.use(express.static('public'))
 
 //go to http://localhost:3000/example.txt to check response of file
+//another example = http://localhost:3000/jek2.png for image
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
