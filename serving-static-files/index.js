@@ -10,8 +10,8 @@ app.get('/', (request, response) => {
 }) 
 
 //get txt file from backend server
-app.use(express.static('public'))
-app.use(express.static('images')) //exposing images folder and accessing its files
+app.use('/public', express.static('public'))
+app.use('/images', express.static('images')) //exposing images folder and accessing its files
 
 //go to http://localhost:3000/example.txt to check response of file
 //another example = http://localhost:3000/jek2.png for image
