@@ -25,3 +25,6 @@ app.listen(PORT, () => {
 
 //handling form data
 //postman
+
+//to check
+//http://localhost:3000/form
