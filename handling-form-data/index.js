@@ -28,3 +28,5 @@ app.listen(PORT, () => {
 
 //to check
 //http://localhost:3000/form
+//then use post method
+//then send
