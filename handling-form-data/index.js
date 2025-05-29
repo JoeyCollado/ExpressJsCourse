@@ -30,3 +30,7 @@ app.listen(PORT, () => {
 //http://localhost:3000/form
 //then use post method
 //then send
+
+//sending normal form data
+//to use it we need external package
+//npm i multer

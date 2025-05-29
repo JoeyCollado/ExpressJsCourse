@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "multer": "^2.0.0"
   },
   "name": "installation",
   "version": "1.0.0",
