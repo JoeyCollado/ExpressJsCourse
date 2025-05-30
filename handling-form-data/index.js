@@ -1,15 +1,26 @@
 import express, { response } from 'express' //after configuring package.json and adding type: "module"
 import multer from 'multer';
+
+//
+const storage = multer.diskStorage({
+    destination:'uploads'
+})
+
 // app instance
 const app = express()
 //backend
 const PORT = 3000;
 //
-const upload = multer(); //instance
+const upload = multer({storage}); //instance
+//
 
 app.use(express.urlencoded({extended:true})) //form url encoded
 //
 app.use(upload.single('image')) //normal form data
+
+
+//disk storage configuration
+
 
 
 app.get('/', (request, response) => { 
@@ -33,3 +44,4 @@ app.listen(PORT, () => {
 //postman
 
 //save any file that we are receiving from form data
+//always add png to images file
