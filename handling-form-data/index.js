@@ -32,14 +32,4 @@ app.listen(PORT, () => {
 //handling form data
 //postman
 
-//to check
-//http://localhost:3000/form
-//then use post method
-//then send
-
-//sending normal form data
-//to use it we need external package
-//npm i multer
-//same process as url encoded form data
-
-//sending file in multi-art form data
+//save any file that we are receiving from form data
