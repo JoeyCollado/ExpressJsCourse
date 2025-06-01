@@ -1,13 +1,8 @@
 import express, { response } from "express"; //after configuring package.json and adding type: "module"
 import multer from "multer";
+import { storage } from "./config/multer.js";
 
-//
-const storage = multer.diskStorage({
-  destination: "uploads",
-  filename: (req, file, cb) => {
-    cb(null,file.fieldname + "_" + Date.now() + file.originalname);
-  },
-});
+
 
 // app instance
 const app = express();
