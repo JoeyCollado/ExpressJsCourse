@@ -14,7 +14,11 @@ const app = express();
 //backend
 const PORT = 3000;
 //
-const upload = multer({ storage }); //instance
+const upload = multer({ storage,
+                        limits:{
+                            fileSize:1024000
+                        }
+ }); //instance
 //
 
 app.use(express.urlencoded({ extended: true })); //form url encoded
