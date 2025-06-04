@@ -14,7 +14,9 @@ const upload = multer({ storage,
                             fileSize:1024000
                         }
  }); //instance
-//
+//MongoDb Instance
+MONGODB_URI = 'mongodb+srv://elation:elation123@cluster0.xqpbws7.mongodb.net'
+
 
 app.use(express.urlencoded({ extended: true })); //form url encoded
 //
