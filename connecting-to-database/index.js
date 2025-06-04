@@ -3,8 +3,6 @@ import multer from "multer";
 import { storage } from "./config/multer.js";
 import mongoose from "mongoose";
 
-
-
 // app instance
 const app = express();
 //backend
@@ -16,7 +14,7 @@ const upload = multer({ storage,
                         }
  }); //instance
 //MongoDb Instance
-MONGODB_URI = 'mongodb+srv://elation:elation123@cluster0.xqpbws7.mongodb.net/express'
+const MONGODB_URI = 'mongodb+srv://elation:elation123@cluster0.xqpbws7.mongodb.net/express'
 
 //establishing mongodb connection
 mongoose.connect(MONGODB_URI).then(() => {
