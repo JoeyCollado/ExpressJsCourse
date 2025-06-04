@@ -37,8 +37,5 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-//handling form data
-//postman
-
-//save any file that we are receiving from form data
-//always add png to images file
+//mongodb
+//using mongodbatlas service to create a mongodb database
