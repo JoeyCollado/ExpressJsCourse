@@ -44,3 +44,5 @@ app.listen(PORT, () => {
 
 //mongodb
 //using mongodbatlas service to create a mongodb database
+
+//creating a schema and a model to perform crud operations in mongodb
