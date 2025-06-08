@@ -8,4 +8,4 @@ const MONGODB_URI = 'mongodb+srv://elation:elation123@cluster0.xqpbws7.mongodb.n
 await mongoose.connect(MONGODB_URI).then(() => { //await makes it so database is connected first before starting application
   console.log("Database Connected")
 })
-}
+}   
