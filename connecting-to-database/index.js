@@ -1,5 +1,6 @@
 import express, { response } from "express"; //after configuring package.json and adding type: "module"
 import { connectDB } from "./config/db.js";
+import { Person } from "./models/Person.js";
 
 // app instance
 const app = express();
@@ -13,8 +14,15 @@ app.get("/", (req, res) => {
 });
 
 //routes
-app.post('/person', express.json(), (req,res) => {
-  console.log(req.body);
+app.post('/person', express.json(), async (req,res) => {
+  const {email, name, age} = req.body
+  const newPerson = new Person({
+    name,
+    age,
+    email
+  })
+  await newPerson.save()
+  console.log(newPerson)
   res.send("Person added")
 })
 
