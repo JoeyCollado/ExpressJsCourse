@@ -1,25 +1,22 @@
 import express, { response } from "express"; //after configuring package.json and adding type: "module"
 import multer from "multer";
 import { storage } from "./config/multer.js";
-import mongoose from "mongoose";
+import { connectDB } from "./config/db.js";
 
 // app instance
 const app = express();
 //backend
 const PORT = 3000;
-//
+//importing mongodb connection logic
+await connectDB();
+
+
 const upload = multer({ storage,
                         limits:{
                             fileSize:1024000
                         }
  }); //instance
-//MongoDb Instance
-const MONGODB_URI = 'mongodb+srv://elation:elation123@cluster0.xqpbws7.mongodb.net/express'
 
-//establishing mongodb connection
-await mongoose.connect(MONGODB_URI).then(() => { //await makes it so database is connected first before starting application
-  console.log("Database Connected")
-})
 
 app.use(express.urlencoded({ extended: true })); //form url encoded
 //
