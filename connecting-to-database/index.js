@@ -34,9 +34,8 @@ app.post('/person',  async (req,res) => {
 app.put('/person',  async (req,res) => {
   const {id} = req.body
   //find data using email id
-  const personData = await Person.findById(id)
-  personData.age = 30
-  await personData.save()
+  const personData = await Person.findByIdAndUpdate(id, {age:'28'})
+  
   console.log(personData)
   res.send("Person updated")
 })
