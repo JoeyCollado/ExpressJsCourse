@@ -42,6 +42,8 @@ app.put('/person',  async (req,res) => {
 
 //saving data method
 
+//delete method
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
