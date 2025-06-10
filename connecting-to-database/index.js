@@ -32,9 +32,9 @@ app.post('/person',  async (req,res) => {
 
 //update method
 app.put('/person',  async (req,res) => {
-  const {name} = req.body
+  const {id} = req.body
   //find data using email id
-  const personData = await Person.find({name})
+  const personData = await Person.find({id})
   console.log(personData)
   res.send("Person updated")
 })
