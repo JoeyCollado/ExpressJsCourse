@@ -30,6 +30,23 @@ app.post('/person',  async (req,res) => {
   res.send("Person added")
 })
 
+//saving data in mongodb
+app.post('/person', async (req,res) => {
+  try{
+    const {email, name, age} = req.body
+    const newPerson = new Person({
+      name,
+      age,
+      email
+    })
+    await newPerson.save()
+    console.log(newPerson)
+    res.send("Person added")
+  }catch(error){
+    res.send(error.message)
+  }
+})
+
 //update method
 app.put('/person',  async (req,res) => {
   const {id} = req.body
