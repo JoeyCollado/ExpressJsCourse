@@ -10,3 +10,5 @@ const personSchema = new mongoose.Schema({
 
 //create model
 export const Person = mongoose.model("Person", personSchema)
+
+//crud operations done
