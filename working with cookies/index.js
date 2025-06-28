@@ -6,13 +6,18 @@ const app = express();
 //backend
 const PORT = 3000;
 //adding cookie parser as middleware
-app.user(cookieParser())
+app.use(cookieParser())
 
 app.get("/", (req, res) => {
+  res.cookie('name', 'express-app') //adding cookie as response
   res.send("Hello Express");
 });
 
-
+//new request
+app.get('/fetch', (req,res) => {
+  console.log(req.cookies);
+  res.send("API called")
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
