@@ -9,7 +9,7 @@ const PORT = 3000;
 app.use(cookieParser())
 
 app.get("/", (req, res) => {
-  res.cookie('name', 'express-app') //adding cookie as response
+  res.cookie('name', 'express-app', {maxAge : 360000}) //adding cookie as response
   res.send("Hello Express");
 });
 
@@ -18,6 +18,9 @@ app.get('/fetch', (req,res) => {
   console.log(req.cookies);
   res.send("API called")
 })
+
+//set cookie and get it whenever making api calls
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
