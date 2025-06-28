@@ -30,13 +30,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-//cookies = are small data files sent from the server to the client, stored on the client browser.
-//          they are sent back with every request to the server
-
-//use of cookies 
-//sesion management - maintaining user login session
-//personalization   - enhancing user experience with recommendations
-//user tracking     - monitoring user behaviour on the website
-
-//npmjs.com - website
-//npm i cookie-parser - package
+//session management
