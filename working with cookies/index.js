@@ -19,7 +19,11 @@ app.get('/fetch', (req,res) => {
   res.send("API called")
 })
 
-//set cookie and get it whenever making api calls
+//removing cookie manually
+app.get('/remove-cookie', (req,res) => {
+  res.clearCookie('name')
+  res.send('Cookie cleared')
+})
 
 
 app.listen(PORT, () => {
