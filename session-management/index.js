@@ -31,6 +31,11 @@ app.get('/visit', (req,res) => { //checks if page views property is available
   } 
 })
 
+//route for removing session
+app.get('/remove-visit', (req,res) => {
+  req.session.destroy() //all sessions and user data will be removed from the backend memory
+  res.send('sesion removed')
+})
 
 
 app.listen(PORT, () => {
