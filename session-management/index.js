@@ -9,21 +9,9 @@ const PORT = 3000;
 app.use(cookieParser())
 
 app.get("/", (req, res) => {
-  res.cookie('name', 'express-app', {maxAge : 360000}) //adding cookie as response
   res.send("Hello Express");
 });
 
-//new request
-app.get('/fetch', (req,res) => {
-  console.log(req.cookies);
-  res.send("API called")
-})
-
-//removing cookie manually
-app.get('/remove-cookie', (req,res) => {
-  res.clearCookie('name')
-  res.send('Cookie cleared')
-})
 
 
 app.listen(PORT, () => {
@@ -31,3 +19,5 @@ app.listen(PORT, () => {
 });
 
 //session management
+//npmjs.com
+//npm install express-session
