@@ -21,10 +21,14 @@ app.get("/", (req, res) => {
 
 //route
 //basic page view session
-app.get('/visit', (req,res) => {
+app.get('/visit', (req,res) => { //checks if page views property is available
   if(req.session.page_views) {
-    
-  } //checks if page views property is available
+    req.session.page_views++;
+    res.send(`You Visited this page ${req.session.page_views} times`) //response
+  }else{ // if you are visiting for the first time
+    req.session.page_views = 1
+    res.send("Welcome to this page for the first time!")
+  } 
 })
 
 
