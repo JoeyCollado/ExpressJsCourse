@@ -30,8 +30,18 @@ app.post('/register', async (req,res) => { //everytime we access this api we wil
     username,
     password
    })
+   res.send('User Registered')
 })
 
+app.post('/login', async (req,res) => { //everytime we access this api we will get user name and password and store properties in array
+  const {username, password} = req.body;
+  const user = users.find(u => u.username === username) //verification
+  if(!user || password !== user.password){ //condition to check if credentials are matched
+      return res.send('Not Authorized')
+  }// if correct create session
+  req.session.user = user
+  res.send('User Log in')
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
