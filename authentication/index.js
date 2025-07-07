@@ -19,22 +19,17 @@ app.get("/", (req, res) => {
   res.send("Hello Express");
 });
 
-//route
-//basic page view session
-app.get('/visit', (req,res) => { //checks if page views property is available
-  if(req.session.page_views) {
-    req.session.page_views++;
-    res.send(`You Visited this page ${req.session.page_views} times`) //response
-  }else{ // if you are visiting for the first time
-    req.session.page_views = 1
-    res.send("Welcome to this page for the first time!")
-  } 
-})
+//session based authentication
+//routes
 
-//route for removing session
-app.get('/remove-visit', (req,res) => {
-  req.session.destroy() //all sessions and user data will be removed from the backend memory
-  res.send('sesion removed')
+const users = [] //array
+
+app.post('/register', async (req,res) => { //everytime we access this api we will get user name and password and store properties in array
+   const {username, password} = req.body;
+   users.push({  //registering objects two array
+    username,
+    password
+   })
 })
 
 
