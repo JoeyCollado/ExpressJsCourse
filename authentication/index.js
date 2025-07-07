@@ -44,3 +44,20 @@ app.listen(PORT, () => {
 
 //authentication in expressjs
 //                             is the process of verifying the identity of a user. ensures that only authorized users can access certain resources
+
+/*
+implementing user authenticaion in express js
+
+There are two main ways to implement authentication in an ExpressJS application:
+
+1. Session-Based Authentication (Uses cookies and sessions)
+2. Token-Based Authentication (Uses JWT or OAuth tokens)
+
+The basic authentication flow:
+
+1. The user sends login credentials (email/password).
+2. The server verifies the credentials against a database.
+3. If valid, the server responds with a session (cookie) or a JWT token.
+4. The client stores this session or token for subsequent requests.
+5. For each request, the client sends the session/token for verification.
+*/
