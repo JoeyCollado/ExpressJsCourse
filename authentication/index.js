@@ -42,7 +42,5 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-//session management
-//npmjs.com
-//npm install express-session
-//done
+//authentication in expressjs
+//                             is the process of verifying the identity of a user. ensures that only authorized users can access certain resources
