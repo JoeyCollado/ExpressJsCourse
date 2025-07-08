@@ -43,6 +43,14 @@ app.post('/login', async (req,res) => { //everytime we access this api we will g
   res.send('User Log in')
 })
 
+//
+app.get('dashboard', (req,res) => {
+  if(!req.session.user){ //if we don't have user available do this
+    return res.send('Unauthorized')
+  } //else
+  res.send(`Welcome, ${req.session.user.username}`)
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
