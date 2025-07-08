@@ -48,7 +48,7 @@ app.post('/login', async (req,res) => { //everytime we access this api we will g
 })
 
 //
-app.get('dashboard', (req,res) => { //can only be accessed by user who is logged in the server
+app.get('/dashboard', (req,res) => { //can only be accessed by user who is logged in the server
   if(!req.session.user){ //if we don't have user available do this
     return res.send('Unauthorized')
   } //else
