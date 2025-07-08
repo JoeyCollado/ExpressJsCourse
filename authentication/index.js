@@ -7,6 +7,10 @@ const app = express();
 //backend
 const PORT = 3000;
 //adding cookie parser as middleware
+
+//middleware to allow us to post data in json
+app.use(express.json())
+
 app.use(cookieParser())
 //set up session as middleware
 app.use(session({
@@ -44,7 +48,7 @@ app.post('/login', async (req,res) => { //everytime we access this api we will g
 })
 
 //
-app.get('dashboard', (req,res) => {
+app.get('dashboard', (req,res) => { //can only be accessed by user who is logged in the server
   if(!req.session.user){ //if we don't have user available do this
     return res.send('Unauthorized')
   } //else
