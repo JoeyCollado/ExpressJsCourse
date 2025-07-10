@@ -101,3 +101,5 @@ The server verifies the token and allows access.
 
 //npm i jsonwebtoken = jwt authentication package
 //npm i bcryptjs = pacakge = use to encrypt user password and save password in storage
+
+//using jwt based authentication to protect any route
