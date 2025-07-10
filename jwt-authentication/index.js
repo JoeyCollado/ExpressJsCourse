@@ -1,5 +1,5 @@
 import express from "express"; //after configuring package.json and adding type: "module"
-
+import bcrypt from "bcryptjs";
 // app instance
 const app = express();
 //backend
@@ -12,9 +12,10 @@ const users = [] //array
 
 app.post('/register', async (req,res) => { //everytime we access this api we will get user name and password and store properties in array
    const {username, password} = req.body;
+   const hashedPassword = await bcrypt.hash(password, 10) //hash the password and store password in array, 10 refers to number of rounds
    users.push({  //registering objects two array
     username,
-    password
+    password:hashedPassword
    })
    res.send('User Registered')
 })
@@ -74,4 +75,4 @@ The server verifies the token and allows access.
 */
 
 //npm i jsonwebtoken = jwt authentication package
-//npm i bcryptjs = pacakge
+//npm i bcryptjs = pacakge = use to encrypt user password and save password in storage
