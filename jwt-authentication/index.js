@@ -39,18 +39,22 @@ app.post("/login", async (req, res) => {
 
 //
 app.get("/dashboard", (req, res) => {
-  //can only be accessed by user who is logged in the server
-  //adding verification method so that if its correct we can access dashboard route
-  //get token from the header
-  const token = req.header("Authorization");
-  //send token on server
-  //verify token
-  const decodedToken = jwt.verify(token, "test#secret");
-  //check if username is available
-  if (decodedToken.username) {
-    res.send(`Welcome ${decodedToken.username}`);
-  } // if incorrect
-  else {
+  try {
+    //can only be accessed by user who is logged in the server
+    //adding verification method so that if its correct we can access dashboard route
+    //get token from the header
+    const token = req.header("Authorization");
+    //send token on server
+    //verify token
+    const decodedToken = jwt.verify(token, "test#secret");
+    //check if username is available
+    if (decodedToken.username) {
+      res.send(`Welcome ${decodedToken.username}`);
+    } // if incorrect
+    else {
+      res.send("Access Denied");
+    }
+  } catch (error) {
     res.send("Access Denied");
   }
 });
