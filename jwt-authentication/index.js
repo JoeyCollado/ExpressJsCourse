@@ -1,6 +1,4 @@
 import express from "express"; //after configuring package.json and adding type: "module"
-import cookieParser from "cookie-parser"; //importing cookie-parser
-import session from "express-session";
 
 // app instance
 const app = express();
@@ -8,23 +6,7 @@ const app = express();
 const PORT = 3000;
 //adding cookie parser as middleware
 
-//middleware to allow us to post data in json
 app.use(express.json())
-
-app.use(cookieParser())
-//set up session as middleware
-app.use(session({
-  secret: 'sample-secret',
-  resave: false, //session will not be save again and again once we apply changes
-  saveUninitialized: false, //prevent empty session to be stored
-}))
-
-app.get("/", (req, res) => {
-  res.send("Hello Express");
-});
-
-//session based authentication
-//routes
 
 const users = [] //array
 
@@ -43,16 +25,12 @@ app.post('/login', async (req,res) => { //everytime we access this api we will g
   if(!user || password !== user.password){ //condition to check if credentials are matched
       return res.send('Not Authorized')
   }// if correct create session
-  req.session.user = user
-  res.send('User Log in')
+ 
 })
 
 //
 app.get('/dashboard', (req,res) => { //can only be accessed by user who is logged in the server
-  if(!req.session.user){ //if we don't have user available do this
-    return res.send('Unauthorized')
-  } //else
-  res.send(`Welcome, ${req.session.user.username}`)
+
 })
 
 app.listen(PORT, () => {
@@ -79,3 +57,20 @@ The basic authentication flow:
 5. For each request, the client sends the session/token for verification.
 */
 
+/*
+JWT-Based Authentication
+
+JWT (JSON Web Token) is a stateless authentication method that sends a token instead of storing sessions on the server.
+
+How JWT Works:
+
+The user logs in and receives a JWT token.
+
+The client stores the token (in localStorage or Authorization Header).
+
+The token is sent with every request.
+
+The server verifies the token and allows access.
+*/
+
+//npm i jsonwebtoken = jwt authentication package
