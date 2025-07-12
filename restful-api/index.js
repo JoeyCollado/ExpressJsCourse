@@ -86,4 +86,18 @@ GET	                               Read Data	          /api/product/list
 POST	                             Create Data	        /api/product/add
 PUT	                               Update Data	        /api/product/update
 DELETE	                           Remove Data	        /api/product/del/:id
+
+
+Use Proper HTTP Status Codes
+Each status code belongs to a particular class, which conveys the type of response:
+
+2xx (Success): These codes indicate that the request was successfully processed by the server.
+
+* 200 OK: The request was successful, and the server has sent back the requested data (for GET requests).
+
+* 201 Created: The resource was successfully created (for POST requests).
+
+* 204 No Content: The request was successful, but there’s no data to return (commonly used for DELETE or PUT requests).
+
+
 */
