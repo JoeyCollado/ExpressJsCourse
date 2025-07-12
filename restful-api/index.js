@@ -63,43 +63,18 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-//authentication in expressjs
-//                             is the process of verifying the identity of a user. ensures that only authorized users can access certain resources
-
 /*
-implementing user authenticaion in express js
+RESTful APIs with ExpressJS
 
-There are two main ways to implement authentication in an ExpressJS application:
+A RESTful API is a web service that follows REST principles, using HTTP methods to perform actions on resources.
 
-1. Session-Based Authentication (Uses cookies and sessions)
-2. Token-Based Authentication (Uses JWT or OAuth tokens)
+REST API Principles
 
-The basic authentication flow:
+1 Stateless
+• Every request from the client must contain all the necessary information.
 
-1. The user sends login credentials (email/password).
-2. The server verifies the credentials against a database.
-3. If valid, the server responds with a session (cookie) or a JWT token.
-4. The client stores this session or token for subsequent requests.
-5. For each request, the client sends the session/token for verification.
+2 Client-Server Architecture
+• The frontend and backend communicate via a well-defined API.
+
+3 Resource-Based
 */
-
-/*
-JWT-Based Authentication
-
-JWT (JSON Web Token) is a stateless authentication method that sends a token instead of storing sessions on the server.
-
-How JWT Works:
-
-The user logs in and receives a JWT token.
-
-The client stores the token (in localStorage or Authorization Header).
-
-The token is sent with every request.
-
-The server verifies the token and allows access.
-*/
-
-//npm i jsonwebtoken = jwt authentication package
-//npm i bcryptjs = pacakge = use to encrypt user password and save password in storage
-
-//using jwt based authentication to protect any route
