@@ -77,4 +77,13 @@ REST API Principles
 • The frontend and backend communicate via a well-defined API.
 
 3 Resource-Based
+
+
+4 HTTP Methods for CRUD Operations
+
+HTTP Method	                       Action	              Example Endpoint
+GET	                               Read Data	          /api/product/list
+POST	                             Create Data	        /api/product/add
+PUT	                               Update Data	        /api/product/update
+DELETE	                           Remove Data	        /api/product/del/:id
 */
