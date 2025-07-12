@@ -120,5 +120,13 @@ Each status code belongs to a particular class, which conveys the type of respon
 
 503 Service Unavailable: The server is currently unavailable (e.g., due to being overloaded or down for maintenance).
 
+Why Status Codes Matter:
 
+Clarity: They give the client or user a clear indication of what happened with the request.
+
+Error Handling: They allow the client to properly handle different kinds of errors (e.g., retrying the request or notifying the user).
+
+Standardization: They provide a consistent way to communicate results across different APIs, making it easier for developers to work with APIs.
+
+In short, status codes are necessary to help the client understand the outcome of the request and to handle any issues accordingly.
 */
