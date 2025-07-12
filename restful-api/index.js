@@ -99,5 +99,15 @@ Each status code belongs to a particular class, which conveys the type of respon
 
 * 204 No Content: The request was successful, but there’s no data to return (commonly used for DELETE or PUT requests).
 
+4xx (Client Errors): These codes indicate that there was an issue with the client’s request, meaning the client needs to fix something.
 
+400 Bad Request: The server cannot process the request due to bad syntax.
+
+401 Unauthorized: The request lacks valid authentication credentials.
+
+403 Forbidden: The server understood the request, but it refuses to authorize it.
+
+404 Not Found: The requested resource was not found on the server.
+
+422 Unprocessable Entity: The server understands the content type and syntax, but the request cannot be processed (often used in validation errors).
 */
