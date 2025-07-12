@@ -110,4 +110,15 @@ Each status code belongs to a particular class, which conveys the type of respon
 404 Not Found: The requested resource was not found on the server.
 
 422 Unprocessable Entity: The server understands the content type and syntax, but the request cannot be processed (often used in validation errors).
+
+
+5xx (Server Errors): These codes indicate that the server has failed to fulfill a valid request.
+
+500 Internal Server Error: A generic error message when the server encounters an unexpected condition.
+
+502 Bad Gateway: The server received an invalid response from an upstream server.
+
+503 Service Unavailable: The server is currently unavailable (e.g., due to being overloaded or down for maintenance).
+
+
 */
