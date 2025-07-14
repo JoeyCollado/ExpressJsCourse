@@ -42,6 +42,13 @@ app.get("/api/products/:id", (req, res) => {
   res.status(200).json(product); //product is already an object so using the product name is enough for the constructor
 });
 
+//API to Create a new product
+app.post('/api/products', (req,res) => {
+  const newProduct = req.body
+  newProduct.id = Date.now()
+  res.status(201).json(newProduct)
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
