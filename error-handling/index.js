@@ -21,7 +21,14 @@ app.get('/sync-error', (req,res) => { //always use try catch block when handling
   }
 })
 
-//
+//Asynchronous Error
+app.get('/async-error', async (req,res) => {
+  try {
+    await Promise.reject(new Error('Async error occured'))
+  } catch (error) {
+    next(error)
+  }
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
