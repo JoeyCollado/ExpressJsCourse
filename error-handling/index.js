@@ -30,6 +30,13 @@ app.get('/async-error', async (req,res) => {
   }
 })
 
+//error handling
+app.use((err,req,res,next) => {
+  console.error(err.message)
+  console.log(err.stack)
+  res.status(500).json({message:error.message})
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
