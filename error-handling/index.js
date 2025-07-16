@@ -8,6 +8,14 @@ const PORT = 3000;
 
 app.use(express.json());
 
+//event listener that will prevent the app from crashing
+process.on("uncaughtException", (err) => { //eventName, caught uncaught exception error in express app
+  console.log(err)
+  process.exit(1)
+}) 
+
+//adding multiple event listeners
+
 app.get("/", (req, res) => {
   res.send("hello express");
 });
@@ -31,7 +39,7 @@ app.get('/async-error', async (req,res, next) => {
 })
 
 //error handling
-app.use((err,req,res,next) => {
+app.use((err,req,res,next) => { //special middleware that handles the routes above
   console.error(err.message)
   console.log(err.stack)
   res.status(500).json({message:err.message})
