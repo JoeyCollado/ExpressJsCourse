@@ -14,6 +14,10 @@ process.on("uncaughtException", (err) => { //eventName, caught uncaught exceptio
   process.exit(1)
 }) 
 
+process.on("unhandledRejection", (reason,promise) => {
+  console.log(reason);
+})
+
 //adding multiple event listeners
 
 app.get("/", (req, res) => {
@@ -57,3 +61,5 @@ app.listen(PORT, () => {
 //open the folder with vscode
 //instal npm package with = npm install
 //you're set to go
+
+//https://www.youtube.com/watch?v=fBzm9zja2Y8&t=13431s = course link
