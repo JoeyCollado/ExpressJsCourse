@@ -13,16 +13,16 @@ app.get("/", (req, res) => {
 });
 
 //Synchronous Error
-app.get('/sync-error', (req,res) => { //always use try catch block when handling sync error
+app.get('/sync-error', (req,res, next) => { //always use try catch block when handling sync error
   try {
-     throw new error('Smth went wrong!')
+     throw new Error('Smth went wrong!')
   } catch (error) {
     next(error)
   }
 })
 
 //Asynchronous Error
-app.get('/async-error', async (req,res) => {
+app.get('/async-error', async (req,res, next) => {
   try {
     await Promise.reject(new Error('Async error occured'))
   } catch (error) {
@@ -34,7 +34,7 @@ app.get('/async-error', async (req,res) => {
 app.use((err,req,res,next) => {
   console.error(err.message)
   console.log(err.stack)
-  res.status(500).json({message:error.message})
+  res.status(500).json({message:err.message})
 })
 
 app.listen(PORT, () => {
